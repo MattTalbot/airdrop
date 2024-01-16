@@ -7,7 +7,7 @@ source ./scripts/deliver.sh
 
 # install arch pacs
 yes | sudo pacman -Syu
-yes | sudo pacman -S ufw neofetch vim python-pygments nodejs npm
+yes | sudo pacman -S ufw neofetch vim openconnect python-pygments nodejs npm
 yes | sudo pamac install gnome-layout-switcher flatpak libpamac-flatpak-plugin
 
 # NVM
