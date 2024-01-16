@@ -1,6 +1,6 @@
 #! /bin/bash
 
-sudo pacman -Syu
+yes | sudo pacman -Syu
 yes | sudo pacman -S ufw
 yes | sudo pacman -S neofetch
 yes | sudo pacman -S vim
