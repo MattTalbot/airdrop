@@ -1,5 +1,8 @@
 #! /bin/bash
 
+GREEN='\033[1;32m'
+NC='\033[0m'
+
 source ./scripts/deliver.sh
 
 # Pacman Installs
@@ -21,4 +24,5 @@ sudo flatpak install flathub com.vivaldi.Vivaldi -y
 sudo flatpak install flathub com.discordapp.Discord -y 
 sudo flatpak install flathub org.libreoffice.LibreOffice -y
 
-reboot
+# Reboot
+echo -e "${GREEN}Install finished time to reboot${NC}"
