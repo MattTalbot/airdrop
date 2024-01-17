@@ -39,6 +39,8 @@ nvm install latest
 
 # settings
 sudo ufw enable #enables uncomplicated firewall
+echo -e "${RED}>>>>> Uncomplicated Firewall Status <<<<<${NC}"
+sudo ufw status
 
 # install flatpaks
 sudo flatpak install flathub us.zoom.Zoom -y
