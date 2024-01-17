@@ -9,6 +9,7 @@ NC='\033[0m'
 DISTRO_UGLY=$(getDistro)
 DISTRO="${DISTRO_UGLY,,}"
 
+# distro packages
 if [[ $DISTRO == *"manjaro"* ]] || [[ $DISTRO == *"arch"* ]]; then
     echo -e "${GREEN}>>>>> Found $DISTRO_UGLY using pacman <<<<<${NC}"
 
@@ -31,8 +32,10 @@ else
     exit
 fi
 
-# NVM
+# nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+nvm -v
+nvm install latest
 
 # settings
 sudo ufw enable #enables uncomplicated firewall
