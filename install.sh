@@ -47,4 +47,4 @@ sudo flatpak install flathub org.libreoffice.LibreOffice -y
 sudo flatpak install flathub com.google.Chrome -y
 
 # reboot
-echo -e "${GREEN}Install finished time to reboot${NC}"
+echo -e "${GREEN}>>>>> Install finished time to reboot <<<<<${NC}"
