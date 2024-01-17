@@ -15,14 +15,14 @@ if [[ $DISTRO == *"manjaro"* ]] || [[ $DISTRO == *"arch"* ]]; then
 
     # install with pacman
     yes | sudo pacman -Syu
-    yes | sudo pacman -S ufw neofetch vim openconnect python-pygments nodejs npm curl
+    yes | sudo pacman -S ufw gufw ufw-extras neofetch vim openconnect python-pygments nodejs npm curl
     yes | sudo pamac install flatpak libpamac-flatpak-plugin
 elif [[ $DISTRO == *"ubuntu"* ]] || [[ $DISTRO == *"debian"* ]]; then
     echo -e "${GREEN}>>>>> Found $DISTRO_UGLY using apt <<<<<${NC}"
 
     # install with apt
     sudo apt-get update
-    sudo apt install ufw neofetch vim openconnect python-pygments nodejs npm curl
+    sudo apt install ufw gufw ufw-extras neofetch vim openconnect python-pygments nodejs npm curl
     sudo apt install flatpak gnome-software-plugin-flatpak
 
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
