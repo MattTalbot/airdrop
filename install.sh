@@ -9,23 +9,23 @@ DISTRO_UGLY=$(getDistro)
 DISTRO="${DISTRO_UGLY,,}"
 
 if [[ $DISTRO == *"manjaro"* ]] || [[ $DISTRO == *"arch"* ]]; then
-    echo "${GREEN}>>>>> using pacman <<<<<${NC}"
+    echo "${GREEN}>>>>> Found $DISTRO_UGLY using pacman <<<<<${NC}"
 
-    # install pacs
+    # install with pacman
     yes | sudo pacman -Syu
     yes | sudo pacman -S ufw git neofetch vim openconnect python-pygments nodejs npm curl
     yes | sudo pamac install gnome-layout-switcher flatpak libpamac-flatpak-plugin
 elif [[ $DISTRO == *"ubuntu"* ]] || [[ $DISTRO == *"debian"* ]]; then
-    echo "${GREEN}>>>>> using apt <<<<<${NC}"
+    echo "${GREEN}>>>>> Found $DISTRO_UGLY using apt <<<<<${NC}"
 
-    # install pacs
+    # install with apt
     sudo apt-get update
     sudo apt install ufw git neofetch vim openconnect python-pygments nodejs npm curl
     sudo apt install gnome-layout-switcher flatpak gnome-software-plugin-flatpak
 
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 else
-    echo ">>>>> distro unknown exiting install <<<<<"
+    echo ">>>>> Distro unknown exiting install <<<<<"
 
     exit
 fi
