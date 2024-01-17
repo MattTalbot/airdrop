@@ -34,8 +34,6 @@ fi
 
 # nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-nvm -v
-nvm install latest
 
 # settings
 sudo systemctl ufw enable #enables uncomplicated firewall
