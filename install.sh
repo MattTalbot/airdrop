@@ -38,7 +38,7 @@ nvm -v
 nvm install latest
 
 # settings
-sudo ufw enable #enables uncomplicated firewall
+sudo systemctl ufw enable #enables uncomplicated firewall
 echo -e "${RED}>>>>> Uncomplicated Firewall Status <<<<<${NC}"
 sudo ufw status
 
