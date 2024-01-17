@@ -1,7 +1,7 @@
 #! /bin/bash
 
 source ./scripts/deliver.sh
-source ./distro.sh
+source ./scripts/distro.sh
 
 GREEN='\033[1;32m'
 NC='\033[0m'
