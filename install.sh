@@ -38,6 +38,12 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 # settings
 sudo systemctl enable ufw #enables uncomplicated firewall
 sudo systemctl start ufw
+sudo ufw limit 22/tcp
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
 echo -e "${RED}>>>>> Uncomplicated Firewall Status <<<<<${NC}"
 sudo ufw status
 
