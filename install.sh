@@ -81,12 +81,11 @@ source ./scripts/vscode-extensions.sh
 # reboot or exit
 echo -e "${GREEN}>>>>> System Setup Finished <<<<<${NC}"
 
-echo -e "Reboot? [Y/n]"
-read rbInput
-if [[ "$rbInput" == "y" ]] || [[ "$rbInput" == "Y" ]]
+read -r -p "Reboot? [Y/n] " response
+if [[ "$response" == "y" ]] || [[ "$response" == "Y" ]]
 then
     sudo poweroff
-elif [[ "$rbInput" == "n" ]] || [[ "$rbInput" == "N" ]]
+elif [[ "$response" == "n" ]] || [[ "$response" == "N" ]]
 then
     exit 1
 fi
