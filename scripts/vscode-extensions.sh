@@ -1,7 +1,7 @@
 #! /bin/bash
 
 # Prettier
-code --install-extension esbenp.prettier-vscode 
+code --install-extension esbenp.prettier-vscode
 
 # Prettier ESLint
 code --install-extension rvest.vs-code-prettier-eslint
@@ -50,3 +50,6 @@ code --install-extension mohsen1.prettify-json
 
 # PlantUML
 code --install-extension jebbs.plantuml
+
+# C/C++ Extension Pack
+code --install-extension ms-vscode.cpptools-extension-pack
