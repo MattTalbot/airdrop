@@ -53,3 +53,6 @@ code --install-extension jebbs.plantuml
 
 # C/C++ Extension Pack
 code --install-extension ms-vscode.cpptools-extension-pack
+
+# Makefile Tools
+code --install-extension ms-vscode.makefile-tools
