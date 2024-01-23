@@ -56,3 +56,6 @@ code --install-extension ms-vscode.cpptools-extension-pack
 
 # Makefile Tools
 code --install-extension ms-vscode.makefile-tools
+
+# Vim Hotkeys
+code --install-extension vscodevim.vim
