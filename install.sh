@@ -39,13 +39,13 @@ if [[ $DISTRO == *"manjaro"* ]] || [[ $DISTRO == *"arch"* ]]; then
 
     # install with pacman
     yes | sudo pacman -Syu
-    yes | sudo pacman -S ufw gufw ufw-extras neofetch vim openconnect python-pygments nodejs npm curl nix
+    yes | sudo pacman -S wget ufw gufw ufw-extras neofetch vim openconnect python-pygments nodejs npm curl nix
 elif [[ $DISTRO == *"ubuntu"* ]] || [[ $DISTRO == *"debian"* ]]; then
     echo -e "${GREEN}>>>>> Found $DISTRO_UGLY using apt <<<<<${NC}"
 
     # install with apt
     sudo apt-get update
-    sudo apt install ufw gufw ufw-extras neofetch vim openconnect python-pygments nodejs npm curl nix
+    sudo apt install wget ufw gufw ufw-extras neofetch vim openconnect python-pygments nodejs npm curl nix
 else
     echo -e "${RED}>>>>> Distro unknown exiting install <<<<<${NC}"
 
@@ -53,7 +53,9 @@ else
 fi
 
 # nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+
+nvm install 21.6.0
 
 # uncomplicated firewall
 sudo systemctl enable ufw
