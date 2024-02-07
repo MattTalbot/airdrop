@@ -1,61 +1,58 @@
 #! /bin/bash
 
 # Prettier
-code --install-extension esbenp.prettier-vscode
+flatpak run com.visualstudio.code --install-extension esbenp.prettier-vscode
 
 # Prettier ESLint
-code --install-extension rvest.vs-code-prettier-eslint
+flatpak run com.visualstudio.code --install-extension rvest.vs-code-prettier-eslint
 
 # Git History
-code --install-extension donjayamanne.githistory
+flatpak run com.visualstudio.code --install-extension donjayamanne.githistory
 
 # Git Lens
-code --install-extension eamodio.gitlens
+flatpak run com.visualstudio.code --install-extension eamodio.gitlens
 
 # Material Icons
-code --install-extension PKief.material-icon-theme
+flatpak run com.visualstudio.code --install-extension PKief.material-icon-theme
 
 # Indent Rainbow
-code --install-extension oderwat.indent-rainbow
+flatpak run com.visualstudio.code --install-extension oderwat.indent-rainbow
 
 # ESLint
-code --install-extension dbaeumer.vscode-eslint
+flatpak run com.visualstudio.code --install-extension dbaeumer.vscode-eslint
 
 # IntelliCode
-code --install-extension VisualStudioExptTeam.vscodeintellicode
+flatpak run com.visualstudio.code --install-extension VisualStudioExptTeam.vscodeintellicode
 
 # Github PR
-code --install-extension GitHub.vscode-pull-request-github
+flatpak run com.visualstudio.code --install-extension GitHub.vscode-pull-request-github
 
 # YAML
-code --install-extension redhat.vscode-yaml
+flatpak run com.visualstudio.code --install-extension redhat.vscode-yaml
 
 # Editor Config
-code --install-extension EditorConfig.EditorConfig
+flatpak run com.visualstudio.code --install-extension EditorConfig.EditorConfig
 
 # Markdown All In One
-code --install-extension yzhang.markdown-all-in-one
+flatpak run com.visualstudio.code --install-extension yzhang.markdown-all-in-one
 
 # Git Graph
-code --install-extension mhutchie.git-graph
+flatpak run com.visualstudio.code --install-extension mhutchie.git-graph
 
 # Import Cost
-code --install-extension wix.vscode-import-cost
+flatpak run com.visualstudio.code --install-extension wix.vscode-import-cost
 
 # Babel JavaScript
-code --install-extension mgmcdermott.vscode-language-babel
+flatpak run com.visualstudio.code --install-extension mgmcdermott.vscode-language-babel
 
 # Prettify JSON
-code --install-extension mohsen1.prettify-json
+flatpak run com.visualstudio.code --install-extension mohsen1.prettify-json
 
 # PlantUML
-code --install-extension jebbs.plantuml
+flatpak run com.visualstudio.code --install-extension jebbs.plantuml
 
 # C/C++ Extension Pack
-code --install-extension ms-vscode.cpptools-extension-pack
+flatpak run com.visualstudio.code --install-extension ms-vscode.cpptools-extension-pack
 
 # Makefile Tools
-code --install-extension ms-vscode.makefile-tools
-
-# Vim Hotkeys
-code --install-extension vscodevim.vim
+flatpak run com.visualstudio.code --install-extension ms-vscode.makefile-tools
