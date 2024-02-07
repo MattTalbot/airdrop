@@ -39,13 +39,14 @@ if [[ $DISTRO == *"manjaro"* ]] || [[ $DISTRO == *"arch"* ]]; then
 
     # install with pacman
     yes | sudo pacman -Syu
-    yes | sudo pacman -S wget ufw gufw ufw-extras neofetch vim openconnect python-pygments nodejs npm curl nix
+    yes | sudo pacman -S wget ufw gufw ufw-extras neofetch vim openconnect python-pygments nodejs npm curl
+    yes | sudo pamac install flatpak libpamac-flatpak-plugin
 elif [[ $DISTRO == *"ubuntu"* ]] || [[ $DISTRO == *"debian"* ]]; then
     echo -e "${GREEN}>>>>> Found $DISTRO_UGLY using apt <<<<<${NC}"
 
     # install with apt
     sudo apt-get update
-    sudo apt install wget ufw gufw ufw-extras neofetch vim openconnect python-pygments nodejs npm curl nix
+    sudo apt install wget ufw gufw ufw-extras neofetch vim openconnect python-pygments nodejs npm curl flatpak
 else
     echo -e "${RED}>>>>> Distro unknown exiting install <<<<<${NC}"
 
@@ -69,13 +70,15 @@ sudo ufw default allow outgoing
 echo -e "${RED}>>>>> Uncomplicated Firewall Status <<<<<${NC}"
 sudo ufw status
 
-# install nix packages
-nix-env -iA nixpkgs.vscode
-nix-env -iA nixpkgs.zoom-us
-nix-env -iA nixpkgs.slack
-nix-env -iA nixpkgs.vivaldi
-nix-env -iA nixpkgs.discord
-nix-env -iA nixpkgs.libreoffice
+# install flatpaks
+sudo flatpak install flathub us.zoom.Zoom -y
+sudo flatpak install flathub com.slack.Slack -y
+sudo flatpak install flathub com.visualstudio.code -y
+sudo flatpak install flathub com.vivaldi.Vivaldi -y
+sudo flatpak install flathub com.discordapp.Discord -y
+sudo flatpak install flathub org.libreoffice.LibreOffice -y
+sudo flatpak install flathub com.google.Chrome -y
+sudo flatpak install flathub org.mozilla.firefox -y
 
 # install vscode extensions
 source ./scripts/vscode-extensions.sh
