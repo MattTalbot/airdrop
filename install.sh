@@ -39,14 +39,54 @@ if [[ $DISTRO == *"manjaro"* ]] || [[ $DISTRO == *"arch"* ]]; then
 
     # install with pacman
     yes | sudo pacman -Syu
-    yes | sudo pacman -S wget ufw gufw ufw-extras neofetch vim openconnect python-pygments nodejs npm curl
+    yes | sudo pacman -S wget ufw gufw ufw-extras neofetch vim openconnect python-pygments nodejs npm curl systemctl
     yes | sudo pamac install flatpak libpamac-flatpak-plugin
+
+    # install flatpaks
+    sudo flatpak install flathub us.zoom.Zoom -y
+    sudo flatpak install flathub com.slack.Slack -y
+    sudo flatpak install flathub com.visualstudio.code -y
+    sudo flatpak install flathub com.vivaldi.Vivaldi -y
+    sudo flatpak install flathub com.discordapp.Discord -y
+    sudo flatpak install flathub org.libreoffice.LibreOffice -y
+    sudo flatpak install flathub com.google.Chrome -y
+    sudo flatpak install flathub org.mozilla.firefox -y
+
+    # install vscode extensions
+    source ./scripts/flatpak-vscode-extensions.sh
+
 elif [[ $DISTRO == *"ubuntu"* ]] || [[ $DISTRO == *"debian"* ]]; then
     echo -e "${GREEN}>>>>> Found $DISTRO_UGLY using apt <<<<<${NC}"
 
     # install with apt
-    sudo apt-get update
-    sudo apt install wget ufw gufw ufw-extras neofetch vim openconnect python-pygments nodejs npm curl flatpak
+    sudo apt update && sudo apt upgrade
+    sudo apt install wget ufw gufw ufw-extras neofetch vim openconnect python-pygments nodejs npm curl -y
+    sudo apt install dirmngr software-properties-common apt-transport-https curl ca-certificates -y
+    sudo apt install libegl1-mesa libxcb-cursor0 libxcb-xtest0 systemctl -y
+
+    # vivaldi
+    curl -fsSL https://repo.vivaldi.com/archive/linux_signing_key.pub | gpg --dearmor | sudo tee /usr/share/keyrings/vivaldi.gpg > /dev/null
+    echo deb [arch=amd64,armhf signed-by=/usr/share/keyrings/vivaldi.gpg] https://repo.vivaldi.com/archive/deb/ stable main | sudo tee /etc/apt/sources.list.d/vivaldi.list
+    sudo apt update
+    sudo apt install vivaldi-stable
+
+    # vscode
+    curl -fSsL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /usr/share/keyrings/vscode.gpg >/dev/null
+    echo deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] https://packages.microsoft.com/repos/vscode stable main | sudo tee /etc/apt/sources.list.d/vscode.list
+
+    sudo apt update
+    sudo apt install code
+
+    # warp | zoom | slack | discord |
+    wget 'https://app.warp.dev/download?package=deb' -O ~/Downloads/warp.deb
+    wget 'https://zoom.us/client/latest/zoom_amd64.deb' -O ~/Downloads/zoom.deb
+    wget 'https://downloads.slack-edge.com/releases/linux/4.36.140/prod/x64/slack-desktop-4.36.140-amd64.deb' -O ~/Downloads/slack.deb
+    wget 'https://discord.com/api/download?platform=linux&format=deb' -O ~/Downloads/discord.deb
+
+    sudo apt install ~/Downloads/warp.deb
+    sudo apt install ~/Downloads/slack.deb
+    sudo apt install ~/Downloads/zoom.deb
+    sudo apt install ~/Downloads/discord.deb
 else
     echo -e "${RED}>>>>> Distro unknown exiting install <<<<<${NC}"
 
@@ -69,19 +109,6 @@ sudo ufw default allow outgoing
 
 echo -e "${RED}>>>>> Uncomplicated Firewall Status <<<<<${NC}"
 sudo ufw status
-
-# install flatpaks
-sudo flatpak install flathub us.zoom.Zoom -y
-sudo flatpak install flathub com.slack.Slack -y
-sudo flatpak install flathub com.visualstudio.code -y
-sudo flatpak install flathub com.vivaldi.Vivaldi -y
-sudo flatpak install flathub com.discordapp.Discord -y
-sudo flatpak install flathub org.libreoffice.LibreOffice -y
-sudo flatpak install flathub com.google.Chrome -y
-sudo flatpak install flathub org.mozilla.firefox -y
-
-# install vscode extensions
-source ./scripts/vscode-extensions.sh
 
 # reboot or exit
 echo -e "${GREEN}>>>>> System Setup Finished <<<<<${NC}"
