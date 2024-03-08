@@ -34,7 +34,7 @@ DISTRO_UGLY=$(getDistro)
 DISTRO="${DISTRO_UGLY,,}"
 
 # distro packages
-if [[ $DISTRO == *"manjaro"* ]] || [[ $DISTRO == *"arch"* ]]; then
+if [[ $DISTRO == *"manjaro"* ]] then
     echo -e "${GREEN}>>>>> Found $DISTRO_UGLY using pacman <<<<<${NC}"
 
     # install with pacman
@@ -55,8 +55,13 @@ if [[ $DISTRO == *"manjaro"* ]] || [[ $DISTRO == *"arch"* ]]; then
     # install vscode extensions
     source ./scripts/flatpak-vscode-extensions.sh
 
-elif [[ $DISTRO == *"ubuntu"* ]] || [[ $DISTRO == *"debian"* ]]; then
+elif [[ $DISTRO == *"ubuntu"* ]]; then
     echo -e "${GREEN}>>>>> Found $DISTRO_UGLY using apt <<<<<${NC}"
+
+    # remove snap and stop from auto install snaps
+    sudo apt autoremove --purge snapd
+    sudo apt-mark hold snapd
+    sudo apt install gnome-software --no-install-recommends -y
 
     # install with apt
     sudo apt update && sudo apt upgrade
